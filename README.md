@@ -32,4 +32,18 @@ FROM
 WHERE 
 	  o.object_id = object_id('datamonster.entregas')  --nome tabela
 ORDER BY distribution_id
+
+
+
+
+--QUery para ver o passo a passo da query
+SELECT
+	  step_index,
+	  operation_type
+FROM
+	  sys.dm_pdw_exec_requests er
+	  JOIN sys.dm_pdw_request_steps rs
+	  ON er.request_id = rs.request_id
+WHERE 
+	  er.[label] = 'STATEMENT:DemoQuery';
 ````
