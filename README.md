@@ -3,11 +3,14 @@
 
 ```SQL
 #Query para mostrar o tipo de distribuição de tabela(s)
-SELECT o.name as tablename, distribution_policy_desc
-FROM sys.pdw_table_distribution_properties ptdp
-JOIN sys.objects o
-ON ptdp.object_id = o.object_id
-WHERE ptdp.object_id = object_id('datamonster.entregas') --Nome da tabela
+SELECT 
+	 o.name as tablename, 
+	 distribution_policy_desc
+FROM 
+	 sys.pdw_table_distribution_properties ptdp
+JOIN sys.objects o ON ptdp.object_id = o.object_id
+WHERE 
+	 ptdp.object_id = object_id('datamonster.entregas') --Nome da tabela
 
 
 #Query para acompanhar as distribuições
@@ -26,6 +29,7 @@ FROM
 	  AND substring(TMap.physical_name,40,10) = pnp.distribution_id
 	  JOIN sys.objects as o
 	  ON TMap.object_id = o.object_id
-WHERE o.object_id = object_id('datamonster.entregas')  --nome tabela
+WHERE 
+	  o.object_id = object_id('datamonster.entregas')  --nome tabela
 ORDER BY distribution_id
 ````
