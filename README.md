@@ -46,4 +46,11 @@ FROM
 	  ON er.request_id = rs.request_id
 WHERE 
 	  er.[label] = 'STATEMENT:DemoQuery';
+	  
+	  
+#Query para analisar execusões de query pelo label
+-- A query para ser analisada necessita do comando option (label = 'Label da Query')
+SELECT *
+FROM sys.dm_pdw_exec_requests
+WHERE [label] like 'Label da Query'
 ````
