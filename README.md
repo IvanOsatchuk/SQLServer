@@ -1,4 +1,4 @@
-# Querys - Úteis SQL SERVER
+# Querys - Úteis AZURE SQL DW
 
 
 ```SQL
